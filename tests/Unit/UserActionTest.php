@@ -4,7 +4,7 @@ namespace ArtARTs36\ULoginApi\Tests\Unit;
 
 use ArtARTs36\ULoginApi\Actions\UserAction;
 use ArtARTs36\ULoginApi\Exceptions\GivenInCorrectData;
-use ArtARTs36\ULoginApi\Exception\NetworkNotAllowed;
+use ArtARTs36\ULoginApi\Exceptions\NetworkNotAllowed;
 use ArtARTs36\ULoginApi\Exceptions\GivenIncorrectToken;
 use ArtARTs36\ULoginApi\Requests\TokenRequest;
 use ArtARTs36\ULoginApi\Support\Network;

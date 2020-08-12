@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtARTs36\ULoginApi\Exception;
+namespace ArtARTs36\ULoginApi\Exceptions;
 
 use Throwable;
 

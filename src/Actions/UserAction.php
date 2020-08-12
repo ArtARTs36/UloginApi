@@ -6,7 +6,7 @@ use ArtARTs36\ULoginApi\Contracts\Action;
 use ArtARTs36\ULoginApi\Contracts\Request;
 use ArtARTs36\ULoginApi\Entities\User;
 use ArtARTs36\ULoginApi\Exceptions\GivenInCorrectData;
-use ArtARTs36\ULoginApi\Exception\NetworkNotAllowed;
+use ArtARTs36\ULoginApi\Exceptions\NetworkNotAllowed;
 use ArtARTs36\ULoginApi\Exceptions\GivenIncorrectToken;
 use ArtARTs36\ULoginApi\Requests\TokenRequest;
 use ArtARTs36\ULoginApi\Support\FieldsChecker;
