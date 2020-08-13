@@ -38,6 +38,7 @@ final class UserTest extends TestCase
         self::assertEquals($lastName, $user->lastName());
         self::assertNull($user->uid());
         self::assertNull($user->city());
+        self::assertNull($user->email());
         self::assertFalse($user->isOfCity('random_city'));
     }
 }

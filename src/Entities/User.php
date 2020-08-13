@@ -34,6 +34,9 @@ class User
     /** @var string|null */
     private $city;
 
+    /** @var string|null */
+    private $email;
+
     /**
      * @param string $network
      * @param array $rawData
@@ -46,6 +49,7 @@ class User
         $this->identity = $rawData['identity'];
         $this->uid = $rawData['uid'] ?? null;
         $this->city = $rawData['original_city'] ?? null;
+        $this->email = $rawData['email'] ?? null;
     }
 
     /**
@@ -112,5 +116,13 @@ class User
     public function isOfCity(string $city): bool
     {
         return !empty($this->city) && $this->city === $city;
+    }
+
+    /**
+     * @return string
+     */
+    public function email(): ?string
+    {
+        return $this->email;
     }
 }
