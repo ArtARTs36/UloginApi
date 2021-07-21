@@ -83,4 +83,12 @@ class User
     {
         return $this->email;
     }
+
+    public function fullName(string $separator = ' '): string
+    {
+        return implode($separator, [
+            $this->firstName,
+            $this->lastName,
+        ]);
+    }
 }

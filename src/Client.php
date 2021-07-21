@@ -61,10 +61,8 @@ class Client implements Contracts\Client
     {
         $url = $this->url($request->url());
 
-        if ($request instanceof Hostable) {
-            if ($request->method() === Request::METHOD_GET) {
-                $url .= '&host='. $this->host;
-            }
+        if ($request instanceof Hostable && $request->method() === Request::METHOD_GET) {
+            $url .= '&host='. $this->host;
         }
 
         return $url;
