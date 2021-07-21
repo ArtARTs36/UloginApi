@@ -69,10 +69,6 @@ final class UserActionTest extends TestCase
      */
     public function testCheckToken(): void
     {
-        self::assertTrue($this->callMethodViaReflection($this->make(), 'checkToken', md5(555)));
-
-        //
-
         self::expectException(GivenIncorrectToken::class);
 
         self::assertTrue($this->callMethodViaReflection($this->make(), 'checkToken', 555));
