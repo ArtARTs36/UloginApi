@@ -37,7 +37,7 @@ final class ClientTest extends TestCase
 
         $curl = $this->callMethodViaReflection($this->make(), 'createCurl', $request);
 
-        self::assertIsResource($curl);
+        self::assertNotFalse($curl);
     }
 
     /**

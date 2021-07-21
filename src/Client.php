@@ -45,6 +45,9 @@ class Client implements Contracts\Client
         return \json_decode($response, true);
     }
 
+    /**
+     * @return false|resource|\CurlHandle
+     */
     protected function createCurl(Request $request)
     {
         \curl_setopt_array($curl = \curl_init(), [
