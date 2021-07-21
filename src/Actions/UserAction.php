@@ -47,7 +47,7 @@ class UserAction implements Action
      */
     public function processResponse(array $data): User
     {
-        if (!FieldsChecker::existsKeys(User::REQUIRED_FIELDS, $data)) {
+        if (! FieldsChecker::existsKeys(User::REQUIRED_FIELDS, $data)) {
             throw new GivenInCorrectData(static::class);
         }
 
@@ -60,7 +60,7 @@ class UserAction implements Action
      */
     private function getNetworkOfResponse(array $data): string
     {
-        if (!Network::isValid($data[static::FIELD_NETWORK])) {
+        if (! Network::isValid($data[static::FIELD_NETWORK])) {
             throw new NetworkNotAllowed($data[static::FIELD_NETWORK]);
         }
 
@@ -69,14 +69,11 @@ class UserAction implements Action
 
     /**
      * @param string $token
-     * @return bool
      */
-    private function checkToken(string $token): bool
+    private function checkToken(string $token): void
     {
         if (Md5::isNotValid($token)) {
             throw new GivenIncorrectToken();
         }
-
-        return true;
     }
 }

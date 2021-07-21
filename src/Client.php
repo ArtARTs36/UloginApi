@@ -5,7 +5,7 @@ namespace ArtARTs36\ULoginApi;
 use ArtARTs36\ULoginApi\Contracts\Hostable;
 use ArtARTs36\ULoginApi\Contracts\Request;
 use ArtARTs36\ULoginApi\Exceptions\ExceptionHandler;
-use http\Exception\RuntimeException;
+use RuntimeException;
 
 /**
  * Class Client
@@ -49,7 +49,7 @@ class Client implements Contracts\Client
         $this->exceptionHandler->handle($request->url(), $response, \curl_getinfo($curl, CURLINFO_HTTP_CODE));
 
         if (($error = \curl_error($curl)) && (!empty($this->curl))) {
-            throw new RuntimeException();
+            throw new RuntimeException($error);
         }
 
         \curl_close($curl);

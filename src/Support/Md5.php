@@ -23,6 +23,6 @@ final class Md5
      */
     public static function isNotValid(string $hash): bool
     {
-        return !static::isValid($hash);
+        return ! self::isValid($hash);
     }
 }
