@@ -15,8 +15,8 @@ class ExceptionHandler
      */
     public function handle(string $url, $response, int $code): void
     {
-        if (!is_string($response)) {
-            throw new ULoginReturnError();
+        if (! is_string($response)) {
+            throw new ULoginReturnError('ULogin returns non-json string');
         }
 
         $response = json_decode($response, true);
@@ -32,9 +32,9 @@ class ExceptionHandler
     public function byError($error): void
     {
         if ($error === 'invalid token') {
-            throw new SendInvalidToken();
+            throw new SendInvalidToken($error);
         }
 
-        throw new ULoginReturnError();
+        throw new ULoginReturnError(json_encode($error));
     }
 }

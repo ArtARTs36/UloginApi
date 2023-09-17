@@ -15,14 +15,18 @@ class Client implements Contracts\Client
 
     private $exceptionHandler;
 
+    private $timeoutSeconds;
+
     public function __construct(
         string $host,
         string $baseUrl = 'http://ulogin.ru',
-        ?ExceptionHandler $exceptionHandler = null
+        ?ExceptionHandler $exceptionHandler = null,
+        int $timeout = 10
     ) {
         $this->host = $host;
         $this->baseUrl = $baseUrl;
         $this->exceptionHandler = $exceptionHandler ?? new ExceptionHandler();
+        $this->timeoutSeconds = $timeout;
     }
 
     /**
@@ -55,6 +59,7 @@ class Client implements Contracts\Client
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => $request->method(),
             CURLOPT_URL => $this->buildUrl($request),
+            CURLOPT_TIMEOUT => $this->timeoutSeconds,
         ]);
 
         return $curl;
