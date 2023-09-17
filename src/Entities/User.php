@@ -25,11 +25,16 @@ class User
 
     private $email;
 
+    /** @var string|null */
+    private $username;
+
     /**
      * @param array<string, string|integer> $rawData
      */
-    public function __construct(string $network, array $rawData)
-    {
+    public function __construct(
+        string $network,
+        array $rawData
+    ) {
         $this->network = $network;
         $this->firstName = $rawData['first_name'];
         $this->lastName = $rawData['last_name'];
@@ -37,6 +42,7 @@ class User
         $this->uid = $rawData['uid'] ?? null;
         $this->city = $rawData['original_city'] ?? null;
         $this->email = $rawData['email'] ?? null;
+        $this->username = isset($rawData['u_name']) && is_string($rawData['u_name']) ? $rawData['u_name'] : null;
     }
 
     public function firstName(): string
@@ -90,5 +96,10 @@ class User
             $this->firstName,
             $this->lastName,
         ]);
+    }
+
+    public function username(): ?string
+    {
+        return $this->username;
     }
 }

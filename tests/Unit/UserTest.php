@@ -22,11 +22,13 @@ final class UserTest extends TestCase
         $identity = 'vk.com/id123456789';
         $name = 'Artem';
         $lastName = 'Ukrainskiy';
+        $username = 'artem_arts36';
 
         $user = new User($network, [
             'first_name' => $name,
             'last_name' => $lastName,
             'identity' => $identity,
+            'u_name' => $username,
         ]);
 
         self::assertEquals($identity, $user->identity());
@@ -40,5 +42,6 @@ final class UserTest extends TestCase
         self::assertNull($user->city());
         self::assertNull($user->email());
         self::assertFalse($user->isOfCity('random_city'));
+        self::assertEquals($username, $user->username());
     }
 }
